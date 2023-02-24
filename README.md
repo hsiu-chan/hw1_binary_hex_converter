@@ -9,6 +9,15 @@ output: 11111111
         FF
 ```
 
+```
+input: 0
+```   
+
+```
+output: 0  
+        0
+```
+
 ## code 
 ```cpp
 #include <iostream>
