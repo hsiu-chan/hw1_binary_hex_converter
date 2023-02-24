@@ -1,36 +1,43 @@
 #include <iostream>
 #include<vector>
 #include<string>
+#include <map>
 using namespace std;
 
-string output(vector<int> arr){
+
+void output(vector<int> arr){
+    map<int,char> to_hex={{10,'A'},{11,'B'},{12,'C'},{13,'D'},{14,'E'},{15,'F'}};
     string result;
     for(int i=arr.size();i>0;i--){
-        result+=arr[i-1];
+        arr[i-1]>9 ? cout<<to_hex[arr[i-1]]:cout<<arr[i-1];
+        //cout<<num;
     }
-    return result;
+    cout<<'\n';
 }
 
 
 int main(){
     int input;
     cin>>input;
-    vector<int> bi (8,0);
-
     int i=0;
-
-    
-    while (input>0)
+    vector<int> bi (8,0);
+    int input_copy1=input;
+    while (input_copy1>0)
     {
-        bi[i]=input%2;
+        bi[i]=input_copy1%2;
         i++;
-        input>>=1;
+        input_copy1>>=1;
     }
+    output(bi);
 
-    string result;
-    for(int i=bi.size();i>0;i--){
-        result+=char(bi[i-1]);
-        cout<<(char(bi[i-1]));
+    int input_copy2=input;
+    vector<int> hex_format (2,0);
+    i=0;
+    while (input_copy2>0)
+    {
+        hex_format[i]=input_copy2%16;
+        i++;
+        input_copy2>>=4;
     }
-    
+    output(hex_format);
 }
