@@ -21,25 +21,21 @@ int main(){
         return 0;
     }
 
-    int i=0;
-    vector<int> bi;
+    vector<int> bi_format;
     int input_copy1=input;
     while (input_copy1>0)
     {
-        bi.push_back(input_copy1%2);
-        i++;
+        bi_format.push_back(input_copy1%2);
         input_copy1>>=1;
     }
-    output(bi);
+    output(bi_format);
 
 
     int input_copy2=input;
     vector<int> hex_format;
-    i=0;
     while (input_copy2>0)
     {
         hex_format.push_back(input_copy2%16);
-        i++;
         input_copy2>>=4;
     }
     output(hex_format);
